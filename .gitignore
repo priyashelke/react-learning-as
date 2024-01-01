@@ -1,0 +1,5 @@
+#idea and editors
+
+/.idea
+.vscode/*
+.xml
