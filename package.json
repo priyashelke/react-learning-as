@@ -1,0 +1,22 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React learning by Akshay Saini",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyashelke/react-learning-as.git"
+  },
+  "author": "priya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyashelke/react-learning-as/issues"
+  },
+  "homepage": "https://github.com/priyashelke/react-learning-as#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
