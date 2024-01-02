@@ -4,3 +4,5 @@
 .vscode/*
 .xml
 /node_modules
+.parcel-cache/
+dist/

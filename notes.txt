@@ -1,3 +1,5 @@
+what is CDN, crossorigin
+
 npm init command is use to create react project.
 
 The most important package in our project is bundler. webpack, parcel, vit all thease are bundller.
@@ -7,3 +9,20 @@ The most important package in our project is bundler. webpack, parcel, vit all t
 webpack is use to build or create the app. but we are going to use parcel to build our app.
 
 npm install -D parcel - command we use to install parcel and -D mean dev dependacies
+
+Install parcel using "npx parcel index.html"
+
+what parcel provide?
+# parcel
+ -build dev
+ -local server
+ -HMR - hot module replacement (auto browser refresh)
+ -cashing - faster builds
+ -image optimization
+ -minifing/bundling
+ -compressing
+ -consistant hashing
+ -code spliting
+ -differancial bundling(support older browser)
+ -allow HTTPs server running
+ - tree shaking - remove unused code for you

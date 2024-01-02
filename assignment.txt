@@ -1,1 +1,3 @@
 what is CDM, crossorigin?
+consistant hashing ?
+doc - parcel , browsersList
