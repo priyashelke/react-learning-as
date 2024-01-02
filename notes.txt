@@ -1,0 +1,9 @@
+npm init command is use to create react project.
+
+The most important package in our project is bundler. webpack, parcel, vit all thease are bundller.
+ buldler is buddle the app and packages to shift the code to production
+
+
+webpack is use to build or create the app. but we are going to use parcel to build our app.
+
+npm install -D parcel - command we use to install parcel and -D mean dev dependacies
