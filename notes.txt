@@ -1,4 +1,12 @@
+Episode-01
+
+what is CDN, crossorigin
+
+
 npm init command is use to create react project.
+
+**************************************************************************************************
+Episode-02
 
 The most important package in our project is bundler. webpack, parcel, vit all thease are bundller.
  buldler is buddle the app and packages to shift the code to production
@@ -7,3 +15,73 @@ The most important package in our project is bundler. webpack, parcel, vit all t
 webpack is use to build or create the app. but we are going to use parcel to build our app.
 
 npm install -D parcel - command we use to install parcel and -D mean dev dependacies
+
+Install parcel using "npx parcel index.html"
+
+what parcel provide?
+# parcel
+ -build dev
+ -local server
+ -HMR - hot module replacement (auto browser refresh)
+ -cashing - faster builds
+ -image optimization
+ -minifing/bundling
+ -compressing
+ -consistant hashing
+ -code spliting
+ -differancial bundling(support older browser)
+ -allow HTTPs server running
+ - tree shaking - remove unused code for you
+ 
+ ********************************************************************************
+
+Episode-03
+
+React.createElement => is a object => when we render is object into ReactDom then it become => HtmlElement
+
+jsx is not html. jsx is just look like html or xml but it's not html or xml. jsx is a standalone and independant.
+
+bable is use to tanpile jsx code into react. 
+
+If you write jsx syntax in one line that is file but if you breakdown line into multiple lines then you have to wrap it into paranthesis()
+
+e.g - 
+single line - const jsxHeading = <h1 id="heading">Namaste React 🚀 By Akshay Saini</h1>;
+
+multiple line - const jsxHeading = ( <h1 id="heading">
+Namaste React 🚀 By Akshay Saini
+</h1> ) ; - paranthesis added
+
+React Component ==>
+
+Two ways to create Component => 1) class base component 2) functional Component
+
+functional Component - it is nothing but javascript function.
+how to create functional component ==> const HeadingComponent = () => { return <h1>Namaste React</h1>}
+
+component composition mean use one compoent into another componet.
+
+Swiggy - config-driven UI \
+
+not using keys(not accetable) <<< index as a key <<<<<<<<< unique id (best practice)
+use key = {} on loops
+
+useEffect() method call on every render of that component
+when dependancy array is not present then useEffect() method call on every render of that component
+e.g useEffect(()=>{
+    console.log("method call on every render of that component");
+})
+
+If dependancy array is empty = [] => useEffect is called on initial render only (only once)
+e.g useEffect(()=>{
+    console.log("useEffect is called on initial render only (only once)");
+}, [])
+
+If dependancy array is [btnName] => useEffect is called on everytime btnName updated;
+e.g useEffect(()=>{
+    console.log("useEffect is called on initial render only (only once)");
+}, [btnName])
+
+useState() is use to create local state variable inside function. 
+create it inside component. 
+never create useState inside if..else/loops/functions conditions
