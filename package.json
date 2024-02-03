@@ -4,7 +4,8 @@
   "description": "React learning by Akshay Saini",
   "main": "app.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "npm rm -rf .parcel-cache && parcel index.html",
+    "build": "npm rm -rf .parcel-cache && parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3"
   }
 }
