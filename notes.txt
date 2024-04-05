@@ -85,3 +85,45 @@ e.g useEffect(()=>{
 useState() is use to create local state variable inside function. 
 create it inside component. 
 never create useState inside if..else/loops/functions conditions
+
+
+break down your app in smaller chunk to faster performance
+    -chunking
+    -code splitting
+    -dynamic bundling
+    -on demand loading
+
+    use lazy() to load component on demand
+
+Higher order component = one component take input as another component and enhance it and return it.
+
+
+Lifting State Up = control child component from parent componet by passing or changing state of data
+
+
+props driling - pass props in chain 
+e.g you have component like in tree parent => child => babychild
+e.g  pass data from parent to babychild
+e.g paraentComp {pass required data as a props data } => child { pass data as props } => babychild { recived data in props}
+
+
+react Context => we avoid props drilling by using context. we can use data in any componet , any level , irrespective of parent child
+global level we kept the data so anybody can access that data in any component
+
+Context consumer => s\used in class based componet to consume context data
+contest provider = (used provider in app.js file)provide the value to app and ovveride
+If I wrap only header inside provider then only header componet will override the value
+we can wrap whole application in provider so the value will available all over applocation
+we can use nested provider
+
+For small and medium application use react context abn for big application we can use redux
+application become easier to debug and use to maintain state management
+redux and react are two  differnt libraries.
+redux is alternative for context
+We install redux into react to use it
+
+zustand is another option for state management
+
+redux toolkit is latest one
+
+

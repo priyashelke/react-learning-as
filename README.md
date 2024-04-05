@@ -15,3 +15,12 @@ React learning by Akshay Saini
  -allow HTTPs server running
  -tree shaking - remove unused code for you
  -differnt dev and prod bundles
+
+
+# redux
+ -install redux toolkit that is @reduxjs/toolkit and react-redux
+ -build our own store
+ -connect our store to our app
+ -create a slice or cart slice
+ -dispatch action
+ -read data using selector
