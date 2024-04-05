@@ -1,12 +1,18 @@
-import React from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import  ReactDOM from "react-dom/client";
 import HeaderLayout from "./components/HeaderLayout";
 import FootLayout from "./components/FootLayout";
 import BodyLayout from "./components/BodyLayout";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import About from "./components/About";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+//import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestroMenu from "./components/retroMenuCard";
+import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+
 /* const heading = React.createElement('h1', {id : "heading", class: "head"}, "Hello from React");
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(heading);
@@ -48,16 +54,48 @@ const JsxComponent = () => (
 ); */
 
 //******************************************************************************************** */
+
+const Grossery= lazy(()=>import("./components/Grossery"));
+
+const About= lazy(()=> import("./components/About"));
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 
 const AppLayout = ()=> {
+    const [userName, setUserName] = useState();
+
+    useEffect(()=>{
+       // AuthenticatorResponse
+      const data = {
+            name : "Priya Shelke"
+        }
+        setUserName(data.name);
+    })
     return (
+        <Provider store={appStore}>
+            <UserContext.Provider value = {{loggedInUser :userName}}>
         <div className="app">
-            <HeaderLayout/>
-            <BodyLayout/>
+           <UserContext.Provider value = {{loggedInUser :"Elon Musk", setUserName}}>
+                <HeaderLayout/>
+            </UserContext.Provider> 
+            <Outlet/>
+         {/*    <BodyLayout/> */}
            {/* <FootLayout/> */}
         </div>
+        </UserContext.Provider>
+        </Provider>
+        
+        // <UserContext.Provider value = {{loggedInUser :userName, setUserName}}>
+        // <div className="app">
+        //         <HeaderLayout/>
+          
+        //     <Outlet/>
+        //  {/*    <BodyLayout/> */}
+        //    {/* <FootLayout/> */}
+        // </div>
+        // </UserContext.Provider>
+       
     )
 }
 
@@ -65,16 +103,37 @@ const appRoute = createBrowserRouter([
     {
        path: '/',
        element: <AppLayout/>,
+       children: [
+        {
+            path: '/',
+            element: <BodyLayout/>
+        },
+        {
+            path: '/about',
+            element: <Suspense fallback={<>Loading</>}><About/></Suspense>
+        },
+        {
+            path: '/contact',
+            element: <Contact/>
+        },
+        {
+            path: '/gorssery',
+            element: <Suspense fallback={
+                <>Loading</>
+            }><Grossery/></Suspense> 
+        },
+        {
+            path: '/restaurant/:resId',
+            element: <RestroMenu/>
+        },
+        {
+            path: '/cart',
+            element: <Cart/>
+        }
+       ],
        errorElement: <Error/>
     },
-    {
-        path: '/about',
-        element: <About/>
-    },
-    {
-        path: '/contact',
-        element: <Contact/>
-    }
+  
 ])
 
 

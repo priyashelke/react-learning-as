@@ -1,7 +1,9 @@
-import RestroCard from "./RestroCard";
+import RestroCard, {WithPromotedTag} from "./RestroCard";
 import ResObject from "../utils/MockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "../components/Shimmer";
+import {Link} from "react-router-dom";
+import UserContext from "../utils/userContext";
 
 const BodyLayout = ()=> {
     // const [listOFRes , setListOFRes] = useState([
@@ -72,6 +74,8 @@ const BodyLayout = ()=> {
 
     useEffect(()=>{fetchSwigyData();}, []);
 
+    const RestroCartPromoted = WithPromotedTag(RestroCard);
+
     const fetchSwigyData = async () => {
        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5529918&lng=73.9333818&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
        .then();
@@ -83,24 +87,47 @@ const BodyLayout = ()=> {
     // if(ListOFRes.length == 0) {
     //     return <Shimmer />
     // }
+    const contextData = useContext(UserContext);
 
     return ListOFRes.length == 0 ? <Shimmer /> : (
         <div className="body">
-            <div className="search">
+            <div className="search flex">
                 <div className="searchbox">
-                <input type="search" name="search" placeholder="search"/>
-                <button>search</button>
+                <input type="search" name="search" placeholder="search" className="border border-solid border-black"/>
+                <button
+                className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+                >search</button>
                 </div>
+                <div>
                 <button type="button" name="button"
+                className="px-4 py-2 bg-gray-100 m-4 rounded-lg"
                 onClick={()=>{
                      const FilteredIteams = ListOFRes.filter((res) => {return res.info.avgRating > 4});
                      console.log('FilteredIteams', FilteredIteams);
                      setListOFRes(FilteredIteams);
                 }}>Show Top Rated Restaurants</button>
+                </div>
+
+                <div>
+                <label>UserName : </label>
+                <input 
+                className="border border-black p-2" 
+                value = {contextData.loggedInUser}
+                onChange={(e) => contextData.setUserName(e.target.value)}/>
             </div>
-            <div className="res-container">
+            </div>
+           
+            <div className="flex flex-wrap">      
+             
                {
-                ListOFRes.map(restaurant => <RestroCard key= {restaurant.info.id} resData = {restaurant}/>)
+                ListOFRes.map(restaurant =>  
+                <Link key={restaurant.info.id} to={'restaurant' +'/'+restaurant.info.id}>
+                  { restaurant.info.isOpen ? (
+                  <RestroCartPromoted resData = {restaurant}/>
+                  ) : (
+                  <RestroCard  resData = {restaurant}/>
+                  )}
+                </Link>)
                }
               
             </div>

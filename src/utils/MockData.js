@@ -1,4 +1,4 @@
-const ResObject =  {
+export const ResObject =  {
     "infoWithStyle": {
         "@type": "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
         "restaurants": [
@@ -279,6 +279,39 @@ const ResObject =  {
         ],
         "theme": "SeoRestaurantListingGridWidget"
     }
-}
+};
 
-export default ResObject;
+export const Userinfo = {
+    "login": "priyashelke",
+    "id": 11211896,
+    "node_id": "MDQ6VXNlcjExMjExODk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/11211896?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/priyashelke",
+    "html_url": "https://github.com/priyashelke",
+    "followers_url": "https://api.github.com/users/priyashelke/followers",
+    "following_url": "https://api.github.com/users/priyashelke/following{/other_user}",
+    "gists_url": "https://api.github.com/users/priyashelke/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/priyashelke/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/priyashelke/subscriptions",
+    "organizations_url": "https://api.github.com/users/priyashelke/orgs",
+    "repos_url": "https://api.github.com/users/priyashelke/repos",
+    "events_url": "https://api.github.com/users/priyashelke/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/priyashelke/received_events",
+    "type": "User",
+    "site_admin": false,
+    "name": null,
+    "company": null,
+    "blog": "",
+    "location": null,
+    "email": null,
+    "hireable": null,
+    "bio": null,
+    "twitter_username": null,
+    "public_repos": 12,
+    "public_gists": 0,
+    "followers": 0,
+    "following": 0,
+    "created_at": "2015-02-26T12:54:02Z",
+    "updated_at": "2024-02-25T08:49:20Z"
+};

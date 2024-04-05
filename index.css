@@ -1,8 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* #heading {
     color: red;
     display: flex;
 } */
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -20,7 +23,7 @@
     color: red;
 } */
 
-.nav-items {
+/*.nav-items {
     padding: 0px 20px;
 }
 
@@ -99,3 +102,14 @@
 .searchbox {
     display: flex;
 }
+
+.styleCard {
+max-width: 800px;
+min-height: 800px;
+margin: 20px auto 0;
+}
+
+.user-card {
+    padding: 10px;
+    border: 1px black solid;
+} */
